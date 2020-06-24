@@ -2,6 +2,7 @@
 @import './h5bp.css';
 
 $border-radius: 8px;
+$info: #3a86ff;
 
 body {
   background-color: #f5f5f5;
@@ -13,6 +14,10 @@ main {
   max-width: 1140px;
   min-height: 100vh;
   padding: 2rem 0;
+}
+
+figure {
+  margin: 0;
 }
 
 .step {
@@ -34,18 +39,22 @@ main {
   overflow: auto;
   scroll-snap-type: x proximity;
 
-  picture {
+  p + & {
+    margin-top: 4rem;
+  }
+
+  .slide {
     width: calc(100% - 3rem);
     max-width: 100%;
     flex: 0 0 auto;
     scroll-snap-align: center;
 
-    + picture {
-      margin-left: 1rem;
+    &:only-child {
+      width: 100%;
     }
 
-    &:last-child {
-      margin-right: 1rem;
+    + .slide {
+      margin-left: 1rem;
     }
   }
 
@@ -53,4 +62,12 @@ main {
     border-radius: $border-radius;
     width: 100%;
   }
+}
+
+.note {
+  border-radius: $border-radius / 2;
+  background-color: mix(white, $info, 80%);
+  border: 1px solid mix(white, $info, 72%);
+  color: mix(black, $info, 48%);
+  padding: 0.5rem;
 }
