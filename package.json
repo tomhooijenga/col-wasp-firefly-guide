@@ -8,14 +8,16 @@
   "scripts": {
     "build": "parcel build index.html",
     "dev": "parcel index.html --open",
+    "build:images": "node resize.js",
     "start": "npm run build && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "devDependencies": {
-    "parcel-bundler": "^1.12.4",
-    "sass": "^1.26.9"
-  },
   "dependencies": {
-    "bootstrap": "^4.5.0"
+    "bootstrap": "^4.5.0",
+    "glob": "^7.1.6",
+    "mkdirp": "^1.0.4",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.26.9",
+    "sharp": "^0.25.4"
   }
 }
