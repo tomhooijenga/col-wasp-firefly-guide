@@ -71,7 +71,8 @@ p {
       height: auto;
       width: 100%;
 
-      > * {
+      > img,
+      > video {
         width: 100%;
         height: auto;
       }
@@ -81,7 +82,8 @@ p {
       margin-left: 1rem;
     }
 
-    > * {
+    img,
+    video {
       border-radius: $border-radius;
       height: 100%;
     }
