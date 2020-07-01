@@ -22,7 +22,7 @@ main {
   margin: 0 auto;
   max-width: 1140px;
   min-height: 100vh;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
 }
 
 figure {
@@ -50,7 +50,7 @@ p {
   flex-wrap: nowrap;
   flex-direction: row;
   overflow: auto;
-  scroll-snap-type: x proximity;
+  scroll-snap-type: x mandatory;
 
   p + & {
     margin-top: 4rem;
@@ -60,6 +60,10 @@ p {
     height: 40vh;
     flex: 0 0 auto;
     scroll-snap-align: center;
+
+    &:first-child {
+      scroll-snap-align: start;
+    }
 
     &:only-child {
       height: auto;
@@ -80,4 +84,10 @@ p {
       height: 100%;
     }
   }
+}
+
+.credits {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
 }
