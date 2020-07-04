@@ -437,5 +437,10 @@
   gtag('js', new Date());
   gtag('config', 'UA-27767409-9');
 </script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js');
+  }
+</script>
 </body>
 </html>
