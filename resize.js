@@ -16,6 +16,7 @@ glob('./source/**/*.jpg', async (error, files) => {
       .toFile(destination + '.webp');
 
     await sharp(file)
+      .resize(2500)
       .webp()
       .toFile(destination + '-large.webp');
   }))
