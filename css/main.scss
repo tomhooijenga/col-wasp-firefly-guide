@@ -70,18 +70,12 @@ p {
   overflow: auto;
 
   .slide {
-    height: 40vh;
+    width: 100%;
     flex: 0 0 auto;
 
-    &:only-child {
-      height: auto;
+    img,
+    video {
       width: 100%;
-
-      > img,
-      > video {
-        width: 100%;
-        height: auto;
-      }
     }
 
     + .slide {
