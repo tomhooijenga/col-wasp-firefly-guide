@@ -28,11 +28,12 @@ p {
 
 .header {
   $color: #8338ec;
+  $overlap: 16rem;
   background-color: $color;
   color: white;
   padding-top: 4rem;
-  padding-bottom: 14rem;
-  margin-bottom: -10rem;
+  padding-bottom: 4rem + $overlap;
+  margin-bottom: -$overlap;
   border-bottom: 1px solid darken($color, 40%);
   box-shadow: $box-shadow;
 }
@@ -67,16 +68,10 @@ p {
   flex-wrap: nowrap;
   flex-direction: row;
   overflow: auto;
-  scroll-snap-type: x mandatory;
 
   .slide {
     height: 40vh;
     flex: 0 0 auto;
-    scroll-snap-align: center;
-
-    &:first-child {
-      scroll-snap-align: start;
-    }
 
     &:only-child {
       height: auto;
