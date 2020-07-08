@@ -70,11 +70,10 @@ p {
   overflow: auto;
 
   .slide {
-    width: 100%;
     flex: 0 0 auto;
+    width: calc(100% - 2rem);
 
-    img,
-    video {
+    &:only-child {
       width: 100%;
     }
 
@@ -85,7 +84,7 @@ p {
     img,
     video {
       border-radius: $border-radius;
-      height: 100%;
+      width: 100%;
     }
   }
 }
