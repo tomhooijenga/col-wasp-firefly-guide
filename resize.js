@@ -3,21 +3,35 @@ const sharp = require('sharp');
 const mkdirp = require('mkdirp');
 const path = require('path');
 
-glob('./source/**/*.jpg', async (error, files) => {
-  await Promise.all(files.map( async (file) => {
+const options = {
+  alphaQuality: 0,
+  reductionEffort: 6,
+}
 
-    const destination = file.replace('./source', './img').replace('.jpg', '');
-    console.log(file, destination);
+glob('./source/**/*.jpg', async (error, files) => {
+  await Promise.all(files.map(async (file) => {
+
+    const destination = file
+      .replace('./source', './img')
+      .replace('.jpg', '');
 
     await mkdirp(path.dirname(destination));
-    await sharp(file)
+
+    const small = sharp(file)
       .resize({width: 1000})
-      .webp()
+      .webp(options)
       .toFile(destination + '.webp');
 
-    await sharp(file)
-      .resize(2500)
-      .webp()
+    const large = sharp(file)
+      .resize({width: 2500})
+      .webp(options)
       .toFile(destination + '-large.webp');
-  }))
+
+    await Promise.all([
+      small,
+      large,
+    ]);
+
+    console.log(file);
+  }));
 });
