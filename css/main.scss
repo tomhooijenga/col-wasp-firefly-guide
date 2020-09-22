@@ -89,6 +89,26 @@ p {
   }
 }
 
+.alert {
+  padding-left: $alert-padding-x + 1rem;
+
+  &::before {
+    display: block;
+    position: absolute;
+    left: $alert-padding-x / 2;
+    text-align: center;
+    width: 1rem;
+  }
+
+  &-info::before {
+    content: "★";
+  }
+
+  &-warning::before {
+    content: "⚠"
+  }
+}
+
 .credits {
   display: block;
   text-align: center;
