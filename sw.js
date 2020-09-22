@@ -4,5 +4,5 @@ workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 
 const {files, ver: revision} = self.__precacheManifest;
-workbox.precaching.precacheAndRoute(files.map((url) => ({url})));
+workbox.precaching.precacheAndRoute(files.map((url) => ({url, revision})));
 workbox.precaching.precacheAndRoute([{url: 'index.html', revision}]);
