@@ -6,6 +6,8 @@ const path = require('path');
 const options = {
   alphaQuality: 0,
   reductionEffort: 6,
+  quality: 30,
+  smartSubsample: true
 }
 
 glob('./source/**/*.jpg', async (error, files) => {
@@ -19,11 +21,13 @@ glob('./source/**/*.jpg', async (error, files) => {
 
     const small = sharp(file)
       .resize({width: 1000})
+      .removeAlpha()
       .webp(options)
       .toFile(destination + '.webp');
 
     const large = sharp(file)
       .resize({width: 2500})
+      .removeAlpha()
       .webp(options)
       .toFile(destination + '-large.webp');
 
