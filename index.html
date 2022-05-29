@@ -10,7 +10,7 @@
   <meta property="og:title" content="Colonel Wasp Firefly build guide">
   <meta property="og:type" content="website">
 
-  <link rel="stylesheet" href="css/main.scss">
+  <link rel="stylesheet" href="css/main.css">
   <meta name="theme-color" content="#fafafa">
 </head>
 <body>
@@ -437,10 +437,6 @@
   gtag('js', new Date());
   gtag('config', 'UA-27767409-9');
 </script>
-<script>
-  if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
-    navigator.serviceWorker.register('/sw.js');
-  }
-</script>
+<script type="module" src="./index.js"></script>
 </body>
 </html>
