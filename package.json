@@ -7,15 +7,15 @@
   "author": "",
   "scripts": {
     "build": "parcel build index.html",
-    "dev": "parcel index.html --open",
+    "dev": "parcel index.html --open --no-cache --no-autoinstall --no-hmr",
     "build:images": "node resize.js",
     "start": "npm run build && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "parcel": "^2.0.0"
-  },
-  "precacheManifest": {
-    "inject": true
+    "@parcel/service-worker": "^2.6.0",
+    "parcel": "^2.6.0",
+    "workbox-core": "^6.5.3",
+    "workbox-precaching": "^6.5.3"
   }
 }

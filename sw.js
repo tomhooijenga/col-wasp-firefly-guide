@@ -1,8 +1,9 @@
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.3/workbox-sw.js');
+import {skipWaiting, clientsClaim} from "workbox-core";
+import {precacheAndRoute} from 'workbox-precaching';
+import {manifest, version as revision } from '@parcel/service-worker';
 
-workbox.core.skipWaiting();
-workbox.core.clientsClaim();
+skipWaiting();
+clientsClaim();
 
-const {files, ver: revision} = self.__precacheManifest;
-workbox.precaching.precacheAndRoute(files.map((url) => ({url, revision})));
-workbox.precaching.precacheAndRoute([{url: 'index.html', revision}]);
+precacheAndRoute(manifest.map((url) => ({url, revision})));
+precacheAndRoute([{url: 'index.html', revision}]);
