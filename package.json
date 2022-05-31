@@ -2,26 +2,21 @@
   "name": "firefly",
   "version": "0.0.1",
   "description": "",
-  "keywords": "",
+  "keywords": [],
   "license": "",
   "author": "",
   "scripts": {
     "build": "parcel build index.html",
-    "dev": "parcel index.html --open",
+    "dev": "parcel index.html --open --no-cache --no-autoinstall --no-hmr",
     "build:images": "node resize.js",
-    "start": "npm run build && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "bootstrap": "^4.5.2",
-    "glob": "^7.1.6",
-    "mkdirp": "^1.0.4",
-    "parcel-bundler": "^1.12.4",
-    "parcel-plugin-precache-manifest": "^3.0.2",
-    "sass": "^1.26.11",
-    "sharp": "^0.26.1"
-  },
-  "precacheManifest": {
-    "inject": true
+    "@parcel/service-worker": "^2.6.0",
+    "parcel": "^2.6.0",
+    "workbox-core": "^6.5.3",
+    "workbox-precaching": "^6.5.3",
+    "workbox-routing": "^6.5.3",
+    "workbox-strategies": "^6.5.3"
   }
 }

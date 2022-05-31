@@ -1,0 +1,160 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #f5f5f5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  --warning: #FFBE0B;
+  --info: #3A86FF;
+  --box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+  --border-radius: 4px;
+}
+
+figure {
+  margin: 0;
+}
+
+p {
+  margin: 1em 0;
+}
+
+.header {
+  --color: #8338ec;
+  --overlap: 16rem;
+  background-color: var(--color);
+  color: white;
+  padding-top: 4rem;
+  padding-bottom: calc(4rem + var(--overlap));
+  margin-bottom: calc(var(--overlap) * -1);
+  border-bottom: 1px solid var(--color);
+  box-shadow: var(--box-shadow);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1140px;
+  padding: 0 1rem;
+}
+
+.step {
+  --padding: 1rem;
+  background-color: white;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+}
+
+.step + .step {
+  margin-top: 2rem;
+}
+
+.step > hr {
+  margin: 3rem calc(-1 * var(--padding));
+  border: solid rgba(60, 64, 67, .15);
+  border-width: 1px 0 0 0;
+}
+
+.slider {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  overflow: auto;
+}
+
+.slide {
+  flex: 0 0 auto;
+  width: calc(100% - 2rem);
+  border-radius: var(--border-radius);
+}
+
+.slide:only-child {
+  width: 100%;
+}
+
+.slide + .slide {
+  margin-left: 1rem;
+}
+
+.slide img {
+  border-radius: var(--border-radius);
+  width: 100%;
+}
+
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  display: flex;
+}
+
+.alert::before {
+  margin-right: 0.5rem;
+}
+
+.alert-info {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+
+.alert-info::before {
+  content: "★";
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+
+.alert-warning::before {
+  content: "⚠"
+}
+
+.credits {
+  display: block;
+  text-align: center;
+  margin: 1rem;
+}
+
+.offline {
+  background: transparent;
+  color: #0c5460;
+  border: 1px solid #0c5460;
+  border-radius: var(--border-radius);
+  margin-left: 0.5rem;
+  transition: box-shadow ease-in-out 100ms;
+}
+
+.offline:hover {
+  box-shadow: 0 0 0 4px #0c54604d
+}
+
+.offline::before {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+[data-offline-state="ready"]::before {
+  content: '✓';
+}
+
+[data-offline-state="loading"]::before {
+  animation: spin 1000ms infinite linear;
+  content: '◑'
+}
+
+@keyframes spin {
+  from {
+    transform:rotate(0deg);
+  }
+  to {
+    transform:rotate(360deg);
+  }
+}
