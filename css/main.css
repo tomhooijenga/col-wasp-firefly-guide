@@ -68,6 +68,7 @@ p {
 .slide {
   flex: 0 0 auto;
   width: calc(100% - 2rem);
+  border-radius: var(--border-radius);
 }
 
 .slide:only-child {
@@ -78,8 +79,7 @@ p {
   margin-left: 1rem;
 }
 
-.slide img,
-.slide video {
+.slide img {
   border-radius: var(--border-radius);
   width: 100%;
 }
