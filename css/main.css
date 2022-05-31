@@ -58,7 +58,6 @@ p {
   border-width: 1px 0 0 0;
 }
 
-
 .slider {
   display: flex;
   flex-wrap: nowrap;
@@ -122,4 +121,40 @@ p {
   display: block;
   text-align: center;
   margin: 1rem;
+}
+
+.offline {
+  background: transparent;
+  color: #0c5460;
+  border: 1px solid #0c5460;
+  border-radius: var(--border-radius);
+  margin-left: 0.5rem;
+  transition: box-shadow ease-in-out 100ms;
+}
+
+.offline:hover {
+  box-shadow: 0 0 0 4px #0c54604d
+}
+
+.offline::before {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+[data-offline-state="ready"]::before {
+  content: '✓';
+}
+
+[data-offline-state="loading"]::before {
+  animation: spin 1000ms infinite linear;
+  content: '◑'
+}
+
+@keyframes spin {
+  from {
+    transform:rotate(0deg);
+  }
+  to {
+    transform:rotate(360deg);
+  }
 }
